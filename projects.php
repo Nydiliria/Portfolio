@@ -17,6 +17,7 @@
         <h1 class="text-4xl font-bold mb-8">My Projects</h1>
         <div id="projects" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8"></div>
     </section>
+    <a href="portfolio-crud/add-project.php">New project (remove later)</a>
 </main>
 
 <footer>

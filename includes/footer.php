@@ -1,1 +1,5 @@
-<div id="footer" class="mt-32"></div>
+<footer id="footer"></footer>
+
+<script src="/js/components.js" defer></script>
+</body>
+</html>

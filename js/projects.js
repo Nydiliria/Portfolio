@@ -5,17 +5,24 @@ document.addEventListener('DOMContentLoaded', () => {
     );
     navbar.render(document.getElementById('navbar'));
 
-    const projects = [
-        {title: 'Project One', description: 'A creative web app built with HTML, CSS, JS', link: '#'},
-        {title: 'Project Two', description: 'An interactive UI project', link: '#'},
-        {title: 'Project Three', description: 'A fun experiment with animations', link: '#'},
-    ];
-
     const projectContainer = document.getElementById('projects');
-    projects.forEach(p => {
-        const card = new ProjectCard(p.title, p.description, p.link);
-        card.render(projectContainer);
-    });
+
+    fetch('/portfolio-crud/get-projects.php')
+        .then(response => response.json())
+        .then(projects => {
+            projects.forEach(p => {
+                const link = p.photos.length > 0 ? p.photos[0] : '#';
+                const card = new ProjectCard(
+                    p.title,
+                    p.description,
+                    link
+                );
+                card.render(projectContainer);
+            });
+        })
+        .catch(err => {
+            console.error('Failed to load projects:', err);
+        });
 
     const footer = new Footer(
         'Feel free to reach out via email: example@email.com',
