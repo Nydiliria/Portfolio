@@ -36,7 +36,7 @@ $result = $conn->query("SELECT * FROM portfolio.projects ORDER BY created_at DES
                 $photos = $conn->query("SELECT * FROM project_photos WHERE project_id={$project['id']}");
                 while ($photo = $photos->fetch_assoc()):
                     ?>
-                    <img src="../uploads/<?= basename($photo['filename']) ?>" width="100" class="rounded">
+                    <img src="/uploads/<?= basename($photo['filename']) ?>" width="100" class="rounded" alt="">
                 <?php endwhile; ?>
             </div>
         </div>

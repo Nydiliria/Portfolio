@@ -7,9 +7,7 @@
     <link href="src/output.css" rel="stylesheet">
 </head>
 
-<header>
-    <?php include 'includes/header.php'; ?>
-</header>
+<?php include 'includes/header.php'; ?>
 
 <main>
     <!-- Projects Section -->
@@ -20,9 +18,8 @@
     <a href="portfolio-crud/add-project.php">New project (remove later)</a>
 </main>
 
-<footer>
-    <?php include 'includes/footer.php'; ?>
-</footer>
+<?php include 'includes/footer.php'; ?>
+
 
 <!-- Scripts -->
 <script src="js/components.js" defer></script>

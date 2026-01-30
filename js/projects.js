@@ -7,26 +7,29 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const projectContainer = document.getElementById('projects');
 
-    fetch('/portfolio-crud/get-projects.php')
-        .then(response => response.json())
+    fetch('portfolio-crud/get-projects.php')
+        .then(res => res.json())
         .then(projects => {
             projects.forEach(p => {
-                const link = p.photos.length > 0 ? p.photos[0] : '#';
+                const link = `project-detail.php?id=${p.id}`;
+
+                // Pick the first photo as cover, or fallback to default
+                const cover = p.photos.length > 0 ? `/${p.photos[0]}` : '/uploads/default-cover.jpg';
+
                 const card = new ProjectCard(
                     p.title,
                     p.description,
-                    link
+                    link,
+                    cover
                 );
+
                 card.render(projectContainer);
             });
-        })
-        .catch(err => {
-            console.error('Failed to load projects:', err);
         });
 
     const footer = new Footer(
         'Feel free to reach out via email: example@email.com',
-        '© 2026 [Your Name]'
+        '© 2026 Sander van Wijngaarden'
     );
     footer.render(document.getElementById('footer'));
 });
